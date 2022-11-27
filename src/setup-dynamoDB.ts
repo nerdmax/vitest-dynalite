@@ -28,8 +28,19 @@ const waitForTable = async (client: DynamoDB, tableName: string) => {
   }
 };
 
+const setup = () => {
+  if (!process.env.AWS_ACCESS_KEY_ID) {
+    process.env.AWS_ACCESS_KEY_ID = 'access-key';
+  }
+
+  if (!process.env.AWS_SECRET_ACCESS_KEY) {
+    process.env.AWS_SECRET_ACCESS_KEY = 'secret-key';
+  }
+};
+
 export const setupDynamoDB = (createTableInputs: CreateTableInput[]): void => {
   beforeEach(async () => {
+    setup();
     // console.log(
     //   `SETUP DYNAMODB for vitest on TEST WORKER ID: ${process.env.VITEST_WORKER_ID}`
     // );
