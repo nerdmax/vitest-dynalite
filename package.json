@@ -122,5 +122,9 @@
     "dynalite": "^3.2.2",
     "get-port": "^6.1.2",
     "vitest": "^0.25.3"
+  },
+  "peerDependencies": {
+    "aws-sdk": "^2.0.0",
+    "vitest": "^0.25.3"
   }
 }
